@@ -215,7 +215,7 @@ if __name__ == '__main__':
         random.shuffle(indices)
         labeled_set = indices[:ADDENDUM]
         unlabeled_set = indices[ADDENDUM:]
-        
+        #可以尝试关掉pin_memory/增大batch_size，解决段错误的问题
         train_loader = DataLoader(cifar10_train, batch_size=BATCH, 
                                   sampler=SubsetRandomSampler(labeled_set), 
                                   pin_memory=True)
